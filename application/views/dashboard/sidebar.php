@@ -350,6 +350,14 @@
 						</li>
 					</ul>
 					<ul class="nav nav-treeview">
+						<li class="nav-item" id="prod_update_stok" >
+							<a href="<?php echo site_url('produksi/update_stok'); ?>" class="nav-link">
+								<i class="nav-icon fa fa-circle-o text-danger"></i>
+								<p>Update Stok</p>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-treeview">
 						<li class="nav-item" id="prod_sticker" style="display: none;">
 							<a href="<?php echo site_url('produksi/sticker'); ?>" class="nav-link">
 								<i class="nav-icon fa fa-circle-o text-danger"></i>
