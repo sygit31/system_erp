@@ -350,7 +350,7 @@
 						</li>
 					</ul>
 					<ul class="nav nav-treeview">
-						<li class="nav-item" id="prod_update_stok" >
+						<li class="nav-item" id="prod_update_stok" style="display: none;">
 							<a href="<?php echo site_url('produksi/update_stok'); ?>" class="nav-link">
 								<i class="nav-icon fa fa-circle-o text-danger"></i>
 								<p>Update Stok</p>
@@ -419,6 +419,13 @@
 									<i class="right fa fa-angle-left"></i>
 								</p>
 							</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item" id="prod_lap_stok" style="display:none;">
+									<a href="<?php echo site_url('sgt/produksi/lap_stok'); ?>" class="nav-link">
+										<p>&nbsp &nbsp &nbsp &nbsp ~ &nbsp Laporan Stok</p>
+									</a>
+								</li>
+							</ul>
 							<ul class="nav nav-treeview">
 								<li class="nav-item" id="prod_lap_kk" style="display:none;">
 									<a href="<?php echo site_url('produksi/lap_pet'); ?>" class="nav-link">
