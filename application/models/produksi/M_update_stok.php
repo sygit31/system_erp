@@ -58,7 +58,27 @@
 				sum(case when upper(trim(aa.seri))='MMEA' then aa.jumlah else 0 end) seri_mmea
 			from erp_prod_update_stok aa
 			join erp_bagian hb on hb.id=aa.id_bagian
-			where trunc(aa.tanggal)=to_date('$tanggal','YYYY-MM-DD')
+			where hb.produksi_group='1'
+			and trunc(aa.tanggal)=to_date('$tanggal','YYYY-MM-DD')
+			group by hb.id, hb.nama, hb.produksi_group, hb.produksi_group_detail
+			order by hb.produksi_group,hb.produksi_group_detail,hb.nama")->result_array();
+	}
+
+
+	function lap_pelekatan($tanggal) {
+		return $this->db->query("Select hb.nama bagian,
+				hb.produksi_group,
+				hb.produksi_group_detail,
+				min(aa.satuan) satuan,
+				sum(aa.jumlah) jumlah,
+				sum(case when upper(trim(aa.seri))='I' then aa.jumlah else 0 end) seri_i,
+				sum(case when upper(trim(aa.seri))='II' then aa.jumlah else 0 end) seri_ii,
+				sum(case when upper(trim(aa.seri))='III' then aa.jumlah else 0 end) seri_iii,
+				sum(case when upper(trim(aa.seri))='MMEA' then aa.jumlah else 0 end) seri_mmea
+			from erp_prod_update_stok aa
+			join erp_bagian hb on hb.id=aa.id_bagian
+			where hb.produksi_group='2'
+			and trunc(aa.tanggal)=to_date('$tanggal','YYYY-MM-DD')
 			group by hb.id, hb.nama, hb.produksi_group, hb.produksi_group_detail
 			order by hb.produksi_group,hb.produksi_group_detail,hb.nama")->result_array();
 	}

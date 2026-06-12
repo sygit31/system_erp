@@ -28,6 +28,7 @@ class Lap_stok extends CI_Controller {
 
         $data['tanggalAwal'] = $tanggalAwal;
         $data['records'] = $this->M_update_stok->lap_stok($tanggalFormat);
+        $data['records_pelekatan'] = $this->M_update_stok->lap_pelekatan($tanggalFormat);
 
         $this->load->view('sgt/produksi/v_lap_stok', $data);
     }
