@@ -453,10 +453,10 @@ $this->load->view('dashboard/footer');
 		var data = [id_edit, barcode, tgl, desain, bahan, spp, no_npk, kode_roll, berat_pdl, berat_pnp, netto, id_toleransi, id_timbang_ulang];
 
 		if (no_npk.length != 6 || (no_npk.substring(4,6) != '/A' && no_npk.substring(4,6) != '/B') || Number(no_npk.substring(0,4)) == 'NaN') {error_isian('Format NPK salah..');}
-		if (kode_roll.length != 5 || (kode != 'A' && kode != 'B') || Number(kode_roll.substring(0,4)) == 'NaN') {error_isian('Format Kode Roll salah..');}
+		if (kode_roll.length != 5 || (kode != 'A' && kode != 'B' && kode != 'C') || Number(kode_roll.substring(0,4)) == 'NaN') {error_isian('Format Kode Roll salah..');}
 		if (berat_pdl == '') {error_isian('Berat PDL belum diisi..');}
 		if (bahan == '') {error_isian('Kode Bahan salah..');}
-		if (barcode.length != 20) {error_isian('Barcode salah..');}
+		if (barcode.length > 20) {error_isian('Barcode salah..');}
 
 		$('#tutup').click();
 		$('#btnProgress').click();
