@@ -30,8 +30,8 @@ class Lap_stok extends CI_Controller {
         $tanggalFormat = $tanggal ? $tanggal->format('Y-m-d') : $tanggalAwal;
 
         $data['tanggalAwal'] = $tanggalAwal;
-        $data['records'] = $this->M_update_stok->lap_stok($tanggalFormat);
-        $data['records_pelekatan'] = $this->M_update_stok->lap_pelekatan($tanggalFormat);
+        $data['records'] = $this->buildRowTotals($this->M_update_stok->lap_stok($tanggalFormat));
+        $data['records_pelekatan'] = $this->buildRowTotals($this->M_update_stok->lap_pelekatan($tanggalFormat));
         $data['total_stok'] = $this->buildTotals($data['records']);
         $data['total_pelekatan'] = $this->buildTotals($data['records_pelekatan']);
 
@@ -44,6 +44,7 @@ class Lap_stok extends CI_Controller {
             'seri_ii' => 0,
             'seri_iii' => 0,
             'seri_mmea' => 0,
+            'total' => 0,
         );
 
         if (!empty($records)) {
@@ -52,9 +53,24 @@ class Lap_stok extends CI_Controller {
                 $totals['seri_ii'] += (float) $row['SERI_II'];
                 $totals['seri_iii'] += (float) $row['SERI_III'];
                 $totals['seri_mmea'] += (float) $row['SERI_MMEA'];
+                $totals['total'] += (float) $row['TOTAL'];
             }
         }
 
         return $totals;
+    }
+
+    private function buildRowTotals($records) {
+        if (!empty($records)) {
+            foreach ($records as &$row) {
+                $row['TOTAL'] = (float) $row['SERI_I']
+                    + (float) $row['SERI_II']
+                    + (float) $row['SERI_III']
+                    + (float) $row['SERI_MMEA'];
+            }
+            unset($row);
+        }
+
+        return $records;
     }
 }

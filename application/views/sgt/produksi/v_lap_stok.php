@@ -67,6 +67,7 @@ $this->load->view('dashboard/sidebar');
                                     <th>Seri II</th>
                                     <th>Seri III</th>
                                     <th>Seri MMEA</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,10 +80,11 @@ $this->load->view('dashboard/sidebar');
                                         <td align="right"><?php echo number_format($dt['SERI_II'], 0, ',', '.'); ?></td>
                                         <td align="right"><?php echo number_format($dt['SERI_III'], 0, ',', '.'); ?></td>
                                         <td align="right"><?php echo number_format($dt['SERI_MMEA'], 0, ',', '.'); ?></td>
+                                        <td align="right"><?php echo number_format($dt['TOTAL'], 0, ',', '.'); ?></td>
                                     </tr>
                                 <?php } } else { ?>
                                     <tr>
-                                        <td colspan="7" align="center">Tidak ada data untuk tanggal yang dipilih.</td>
+                                        <td colspan="8" align="center">Tidak ada data untuk tanggal yang dipilih.</td>
                                     </tr>
                                 <?php } ?>
                                 <?php if (!empty($records)) { ?>
@@ -92,6 +94,7 @@ $this->load->view('dashboard/sidebar');
                                         <td align="right"><b><?php echo number_format($total_stok['seri_ii'], 0, ',', '.'); ?></b></td>
                                         <td align="right"><b><?php echo number_format($total_stok['seri_iii'], 0, ',', '.'); ?></b></td>
                                         <td align="right"><b><?php echo number_format($total_stok['seri_mmea'], 0, ',', '.'); ?></b></td>
+                                        <td align="right"><b><?php echo number_format($total_stok['total'], 0, ',', '.'); ?></b></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -114,6 +117,7 @@ $this->load->view('dashboard/sidebar');
                                     <th>Seri II</th>
                                     <th>Seri III</th>
                                     <th>Seri MMEA</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,10 +130,11 @@ $this->load->view('dashboard/sidebar');
                                         <td align="right"><?php echo number_format($dt['SERI_II'], 0, ',', '.'); ?></td>
                                         <td align="right"><?php echo number_format($dt['SERI_III'], 0, ',', '.'); ?></td>
                                         <td align="right"><?php echo number_format($dt['SERI_MMEA'], 0, ',', '.'); ?></td>
+                                        <td align="right"><?php echo number_format($dt['TOTAL'], 0, ',', '.'); ?></td>
                                     </tr>
                                 <?php } } else { ?>
                                     <tr>
-                                        <td colspan="7" align="center">Tidak ada data untuk tanggal yang dipilih.</td>
+                                        <td colspan="8" align="center">Tidak ada data untuk tanggal yang dipilih.</td>
                                     </tr>
                                 <?php } ?>
                                 <?php if (!empty($records_pelekatan)) { ?>
@@ -139,6 +144,7 @@ $this->load->view('dashboard/sidebar');
                                         <td align="right"><b><?php echo number_format($total_pelekatan['seri_ii'], 0, ',', '.'); ?></b></td>
                                         <td align="right"><b><?php echo number_format($total_pelekatan['seri_iii'], 0, ',', '.'); ?></b></td>
                                         <td align="right"><b><?php echo number_format($total_pelekatan['seri_mmea'], 0, ',', '.'); ?></b></td>
+                                        <td align="right"><b><?php echo number_format($total_pelekatan['total'], 0, ',', '.'); ?></b></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
